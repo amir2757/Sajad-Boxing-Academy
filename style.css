@@ -1,0 +1,53 @@
+:root{--bg:#000;--panel:rgba(18,10,32,.72);--line:rgba(160,130,255,.25);--text:#f3eefc;--muted:#a79bc4;--red:#e11d2e;--red2:#ff3b4a;--rest:#6ea8ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;background:#000;color:var(--text);font-family:"Vazirmatn",Tahoma,system-ui,sans-serif;position:relative;overflow-x:hidden}
+.galaxy{position:fixed;inset:0;z-index:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 15%,rgba(110,40,190,.35),transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(30,60,170,.3),transparent 55%),radial-gradient(ellipse at 70% 10%,rgba(200,30,80,.18),transparent 45%),#000}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:24px 16px 48px}
+header{text-align:center}
+header img{width:132px;height:132px;border-radius:50%;box-shadow:0 0 0 2px var(--line),0 0 40px rgba(225,29,46,.35)}
+h1{font-size:1.5rem;font-weight:800;margin:12px 0 2px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(6px);margin-bottom:16px}
+.stage{text-align:center}
+.phase{font-size:1.15rem;font-weight:600;min-height:1.8em}
+.phase.work{color:var(--red2)}.phase.rest{color:var(--rest)}
+.ring{position:relative;width:min(280px,72vw);aspect-ratio:1;margin:8px auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:10}
+.ring .bg{stroke:rgba(255,255,255,.08)}
+.ring .fg{stroke:var(--red);stroke-linecap:round;transition:stroke .3s}
+.ring.rest .fg{stroke:var(--rest)}
+.time{position:absolute;inset:0;display:grid;place-content:center;font-size:3.4rem;font-weight:800;direction:ltr;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.now{color:var(--muted);min-height:1.5em;margin:4px 0 14px}
+.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:11px 20px;font-weight:600;color:#fff;background:var(--red);transition:background .15s,transform .1s}
+button:hover{background:var(--red2)}button:active{transform:scale(.97)}
+button.ghost{background:transparent;border:1px solid var(--red);color:var(--red2)}
+button.ghost:hover{background:rgba(225,29,46,.15)}
+button:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+h2{font-size:1.1rem;margin:0 0 12px}
+.row{display:grid;grid-template-columns:30px 1fr 84px 84px 38px;gap:8px;align-items:center;padding:8px;border-radius:12px;border:1px solid transparent}
+.row.head{color:var(--muted);font-size:.82rem;padding-block:0 4px}
+.row.active{border-color:var(--red);background:rgba(225,29,46,.1)}
+.row.done{opacity:.45}
+.idx{color:var(--muted);text-align:center}
+input{width:100%;font:inherit;color:var(--text);background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+input[type=number]{direction:ltr;text-align:center}
+.del{padding:6px 0;background:transparent;color:var(--muted);border:1px solid var(--line)}
+.del:hover{background:var(--red);color:#fff}
+.addbar{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;align-items:center}
+.total{color:var(--muted);margin-inline-start:auto;font-size:.9rem}
+.empty{color:var(--muted);text-align:center;padding:14px}
+@media(max-width:520px){.row{grid-template-columns:22px 1fr 64px 64px 34px;gap:5px;padding:6px 2px}.time{font-size:2.8rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.days{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;scrollbar-width:thin}
+.days .day{flex:1 0 auto;min-width:68px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 10px;background:transparent;border:1px solid var(--line);color:var(--text)}
+.days .day small{font-size:.7rem;font-weight:400;color:var(--muted)}
+.days .day:hover{background:rgba(225,29,46,.18)}
+.days .day.sel{background:var(--red);border-color:var(--red2);box-shadow:0 0 18px rgba(225,29,46,.45)}
+.days .day.sel small{color:#ffd9dc}

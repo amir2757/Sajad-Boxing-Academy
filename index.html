@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تایمر تمرین سجاد بوکسینگ</title>
+<link rel="icon" href="logo.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="galaxy"></div><canvas id="stars"></canvas>
+<main>
+<header>
+  <img src="logo.jpg" alt="لوگوی ساجاد بوکسینگ">
+  <h1>به آکادمی بوکس سجاد خوش آمدید</h1>
+  <p class="sub">تایمر برنامه تمرینی</p>
+</header>
+
+<section class="panel stage" aria-live="polite">
+  <div class="phase" id="phase">آماده شروع</div>
+  <div class="ring" id="ring">
+    <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle class="fg" id="fg" cx="50" cy="50" r="45"/></svg>
+    <div class="time" id="time">00:00</div>
+  </div>
+  <div class="now" id="now"></div>
+  <div class="controls">
+    <button id="start">شروع تمرین</button>
+    <button id="skip" class="ghost">رد کردن</button>
+    <button id="reset" class="ghost">از اول</button>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="days" id="days" role="tablist" aria-label="روزهای هفته"></div>
+  <h2 id="dayTitle">برنامه تمرینی</h2>
+  <div class="row head"><span></span><span>نام حرکت</span><span>تمرین (دقیقه)</span><span>استراحت (دقیقه)</span><span></span></div>
+  <div id="list"></div>
+  <div class="addbar">
+    <button id="add">افزودن حرکت</button>
+    <button id="clear" class="ghost">خالی کردن این روز</button>
+    <span class="total" id="total"></span>
+  </div>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
